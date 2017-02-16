@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WeatherVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="A7A-Tw-Uhu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="80" id="A7A-Tw-Uhu">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A7A-Tw-Uhu" id="SOD-l6-GbT">
@@ -150,6 +150,7 @@
                                                 <constraint firstItem="yLc-jj-nqk" firstAttribute="top" secondItem="SOD-l6-GbT" secondAttribute="topMargin" constant="10" id="waX-dE-ZLh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -165,6 +166,14 @@
                             <constraint firstItem="4H8-HT-9iC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u64-NU-c19"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTempLabel" destination="pvx-fP-F6t" id="Qd8-IL-5XL"/>
+                        <outlet property="currentWeatherImage" destination="73C-pk-5H4" id="CCa-wp-J3k"/>
+                        <outlet property="currentWeatherTypeLabel" destination="wxq-80-qXK" id="CN2-GE-Hxe"/>
+                        <outlet property="dateLabel" destination="pvb-M9-Sfk" id="T1b-36-7KO"/>
+                        <outlet property="locationLabel" destination="bL0-kz-s6F" id="81C-sS-t4d"/>
+                        <outlet property="tableView" destination="4H8-HT-9iC" id="JYD-My-Ud3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
