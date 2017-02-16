@@ -50,7 +50,7 @@ class CurrentWeather {
         return _currentTemp
     }
     
-    func downloadWeatherDetails(completed: Constants.DownloadComplete) {
+    func downloadWeatherDetails(completed: @escaping Constants.DownloadComplete) {
         let currnetWeatherURL = URL(string: Constants.URLs.CURRENT_WEATHER_URL)!
         Alamofire.request(currnetWeatherURL).responseJSON { response in
             let result = response.result
@@ -77,9 +77,8 @@ class CurrentWeather {
                 let kelvinToFarenheit = Double(round(10 * kelvinToFarenheitPreDivision/10))
                 self._currentTemp = kelvinToFarenheit
             }
-            
+            completed()
         }
-        completed()
     }
     
     
