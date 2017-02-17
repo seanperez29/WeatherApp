@@ -17,15 +17,21 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var currentWeather: CurrentWeather!
+    var forecast: Forecast!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         currentWeather = CurrentWeather()
+        forecast = Forecast()
         currentWeather.downloadWeatherDetails {
             self.updateMainUI()
         }
+    }
+    
+    func downloadForecastData(completed: Constants.DownloadComplete) {
+        let forecastURL = URL(string: <#T##String#>)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
