@@ -72,7 +72,6 @@ class Forecast {
             dateFormatter.timeStyle = .none
             _date = unixConvertedDate.dayOfTheWeek()
         }
-        
     }
     
     func convertToKelvin(temp: Double) -> Double {

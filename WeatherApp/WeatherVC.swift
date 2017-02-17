@@ -27,7 +27,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         currentWeather = CurrentWeather()
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
         }
     }
     
@@ -44,17 +46,21 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     let forecast = Forecast(weatherDict: obj)
                     self.forecasts.append(forecast)
                 }
+                self.forecasts.remove(at: 0)
+                self.tableView.reloadData()
             }
-            
         }
+        completed()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return forecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+        let forecast = forecasts[indexPath.row]
+        cell.configureCell(forecast: forecast)
         return cell
     }
     
